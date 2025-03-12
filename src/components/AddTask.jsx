@@ -6,35 +6,37 @@ import { addTask } from '../JS/actions/actions';
 
 
 const AddTask = () => {
-    const [description, setDescritpion] = useState('')
+    const [description, setDescription] = useState('')
     // console.log(description)
     const dispatch = useDispatch()
     
     const handleSubmit = (e) => {
-        e.preventDefault()
+      e.preventDefault();
        if(description.trim()=== '') return alert('You need to add a task description')
-            const newTask = {
-                id: Math.random(),
-                description: description,
-                isDone: false
-        }
+        const newTask = {
+      id: Math.random(),
+      description: description,
+      isDone: false
+    }
 
         dispatch(addTask(newTask))
-        setDescritpion('')
+        setDescription('')
     }
 
   return (
     <div>
 
-       <Form className='container' onSubmit={handleSubmit()}>
+       <Form className='container' onSubmit = {handleSubmit}>
       <Form.Group className="mb-3">
-        <Form.Control type="email" placeholder="Description" value = {description} onChange = {(e) => setDescritpion(e.target.value)}/>
+        <Form.Control type="text" placeholder="Description" style={{width:'600px', margin:'auto'}} value = {description} onChange = {(e) => setDescription(e.target.value)}/>
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button variant="primary" type="submit" style={{margin: '20px', backgroundColor:'beige', color:'black', border:'none', borderRadius:'20px'}}>
         Add Task
       </Button>
     </Form>
 
+
+   
     </div>
   )
 }

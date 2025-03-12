@@ -1,6 +1,10 @@
 .App {
   text-align: center;
-  background-color: rgb(76, 76, 74);
   height: 100vh;
 }
 
+body {
+  background-image: url('https://png.pngtree.com/background/20250103/original/pngtree-flat-lay-top-view-office-table-desk-picture-image_15444834.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}

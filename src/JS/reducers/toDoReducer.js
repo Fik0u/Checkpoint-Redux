@@ -1,18 +1,19 @@
-import { ADD_TASK, DELETE_TASK, EDIT_TASK, TOGGLE_TASK } from "../actionTypes/actionTypes";
+import { ADD_TASK, DELETE_TASK, EDIT_TASK, TASK_FILTER, TOGGLE_TASK } from "../actionTypes/actionTypes";
 
 const initialState = {
     tasks: [
         { 
             id: Math.random(),
-            description: 'Task 1',
+            description: 'Go to Gym',
             isDone: false 
         },
         { 
             id: Math.random(),
-            description: 'Task 2',
+            description: 'Do Homework',
             isDone: false 
         },
-    ]
+    ],
+    filter: "All"
 }
 
 
@@ -29,6 +30,9 @@ const toDoReducer = (state = initialState, {type, payload}) => {
 
             case TOGGLE_TASK: 
                 return {...state, tasks: state.tasks.map(task => task.id === payload ? { ...task, isDone: !task.isDone } : task)}
+
+            case TASK_FILTER:
+                return {...state, filter: payload}
         
             default: return state
         }

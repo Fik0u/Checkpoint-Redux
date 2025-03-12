@@ -1,4 +1,4 @@
-import { ADD_TASK, DELETE_TASK, EDIT_TASK, TOGGLE_TASK } from "../actionTypes/actionTypes"
+import { ADD_TASK, DELETE_TASK, EDIT_TASK, TASK_FILTER, TOGGLE_TASK } from "../actionTypes/actionTypes"
 
 
 //! Action creators
@@ -31,5 +31,12 @@ export const toggleTask = (id) => {
     return {
         type: TOGGLE_TASK,
         payload: id
+    }
+}
+
+export const taskFilter = (filter) => {
+    return {
+        type: TASK_FILTER,
+        payload : filter
     }
 }
